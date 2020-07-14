@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="All notes"
+        android:id="@+id/nav_notes"
+        android:icon="@drawable/baseline_article_24"
+        />
+
+    <item
+        android:title="Frequently Used"
+        android:id="@+id/nav_bookmarks"
+        android:icon="@drawable/baseline_bookmark_24"
+        />
+
+    <item
+        android:title="Shared notebooks"
+        android:id="@+id/nav_shared"
+        android:icon="@drawable/baseline_people_24"
+        />
+
+    <item
+        android:title="Recycle bin"
+        android:id="@+id/nav_delete"
+        android:icon="@drawable/baseline_delete_forever_24"
+        />
+</menu>
