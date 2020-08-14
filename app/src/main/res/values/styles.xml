@@ -7,4 +7,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ExpandedAppearance">
+        <item name="android:opacity"> transparent </item>
+        <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CollapsedAppearance">
+        <item name="android:opacity"> opaque </item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

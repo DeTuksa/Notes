@@ -4,6 +4,8 @@
     <string name="edit">Edit</string>
     <string name="sort">Sort</string>
     <string name="view">View</string>
+    <string name="empty"> </string>
+    <string name="title">Notes</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_closed">Close Navigation Drawer</string>
 </resources>
