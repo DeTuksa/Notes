@@ -5,39 +5,69 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        final Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, myToolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_closed
         );
-        if(drawer!=null){
+        if (drawer != null) {
             drawer.addDrawerListener(toggle);
         }
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        if(navigationView!=null){
+        if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
         }
+
+        ArrayList<NotePreview> previews = new ArrayList<>();
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+
+        NotePreviewAdapter adapter = new NotePreviewAdapter(this, previews);
+        RecyclerView previewList = findViewById(R.id.preview_list);
+        previewList.setAdapter(adapter);
+        previewList.setLayoutManager(new LinearLayoutManager(this));
+
+    }
+
+    public void onFabClicked(View view) {
+        Intent i = new Intent(this, AddNoteActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -63,4 +93,5 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
     }
+
 }
