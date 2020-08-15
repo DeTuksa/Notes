@@ -6,6 +6,9 @@
     <string name="view">View</string>
     <string name="empty"> </string>
     <string name="title">Notes</string>
+    <string name="save">Save</string>
+    <string name="addTag">Add Tag</string>
+    <string name="delete">Delete</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_closed">Close Navigation Drawer</string>
 </resources>

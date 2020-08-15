@@ -4,9 +4,9 @@ class NotePreview {
     private String previewText;
     private String date;
 
-    public  NotePreview(String previewText,String date){
-        this.date=date;
-        this.previewText=previewText;
+    public NotePreview(String previewText, String date) {
+        this.date = date;
+        this.previewText = previewText;
     }
 
     public String getDate() {

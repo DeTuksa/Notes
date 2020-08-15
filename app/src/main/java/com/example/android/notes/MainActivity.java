@@ -1,4 +1,5 @@
 package com.example.android.notes;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,30 +35,30 @@ public class MainActivity extends AppCompatActivity
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_closed
         );
-        if(drawer!=null){
+        if (drawer != null) {
             drawer.addDrawerListener(toggle);
         }
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        if(navigationView!=null){
+        if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
         }
 
         ArrayList<NotePreview> previews = new ArrayList<>();
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
-        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ","8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
+        previews.add(new NotePreview("Lores ipsum dores sit amet Lores ipsum dores sit amet Lores ipsum dores sit amet ", "8 jul 2020"));
 
-        NotePreviewAdapter adapter = new NotePreviewAdapter(this,previews);
+        NotePreviewAdapter adapter = new NotePreviewAdapter(this, previews);
         RecyclerView previewList = findViewById(R.id.preview_list);
         previewList.setAdapter(adapter);
         previewList.setLayoutManager(new LinearLayoutManager(this));
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onFabClicked(View view) {
-        Intent i = new Intent(this,AddNoteActivity.class);
+        Intent i = new Intent(this, AddNoteActivity.class);
         startActivity(i);
     }
 
