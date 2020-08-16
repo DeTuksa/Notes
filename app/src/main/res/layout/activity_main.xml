@@ -5,25 +5,105 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/my_toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:layout_height="300dp"
+            android:background="@color/white"
+            android:elevation="0dp"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:elevation="0dp"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleTextAppearance="@style/CollapsedAppearance"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@style/ExpandedAppearance"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.2">
+
+                    <TextView
+                        android:id="@+id/allNotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="All notes"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/noOfNotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/allNotes"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="5dp"
+                        android:text="0 notes"
+                        android:textAlignment="center"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/my_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    android:elevation="0dp"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/preview_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="6dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:backgroundTint="#F4511E"
+            android:contentDescription="submit"
+            android:foregroundTint="@android:color/white"
+            android:onClick="onFabClicked"
+            android:src="@drawable/baseline_add_white_36"
+            app:borderWidth="0dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
